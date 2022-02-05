@@ -1,36 +1,43 @@
 # CALCULAR SALÁRIO LÍQUIDO
 # VT 6%, VR 20% do valor total do vr, FGTS 8%
-
+import os
 sair=1
 def continuarOUsair():
     print("")
     global sair
     sair=int(input(f"DIGITE 1 - para continuar \nDIGITE 2 - para sair: "))
-    if (sair!=1 or sair!=2):
-        print("DIGITE UMA OPÇÃO VÁLIDA!")
+    if sair==2:
+        sair=2
+    else:
+        pass
 
 def calculo(descontos):
     print("")
     salarioLiquido= salarioBruto-descontos
     print(f'valor descontado dos beneficios + inss = R${descontos:.2f}')
     print(f'valor do salário líquido = R${salarioLiquido:.2f}')
-    print('-' *10)
+    print('-' *20)
     recebido(salarioLiquido)
 
 def recebido(sal):
     print("")
+    global sair
     continuar=int(input(f"DIGITE 1 - se deseja saber o valor líquido recebido por dia \nDIGITE 2 - para finalizar: "))
-    if (continuar==1 or 'DIGITE UMA OPÇÃO VÁLIDA'):
+    if (continuar==1):
         escala=int(input(f"\nDIGITE SUA ESCALA: \n 1 - 6x1 \n 2 - 5x2: "))
-        if (escala==1 or 'DIGITE UMA OPÇÃO VÁLIDA'):
+        if (escala==1):
             dia= sal/26
             print(f'valor recebido por dia= R${dia:.2f}')
+            continuarOUsair()
+            os.system("cls")
         elif (escala==2 or 'DIGITE UMA OPÇÃO VÁLIDA'):
             dia= sal/22
             print(f'valor recebido por dia= R${dia:.2f}')
+            continuarOUsair()
+            os.system("cls")
 
     elif (continuar==2 or 'DIGITE UMA OPÇÃO VÁLIDA'):
-        False
+        sair=2
 
 while sair==1:
     try:
@@ -47,20 +54,18 @@ while sair==1:
             vr=float(input("Digite o valor recebido em VR: R$"))
             descontos= (salarioBruto*0.06)+(vr*0.2)+(salarioBruto*0.08)
             calculo(descontos)
-            continuarOUsair()
 
         elif (opcao==2): #recebe apenas VT
             salarioBruto=float(input("DIGITE SEU SALÁRIO BRUTO: R$"))
             descontos= (salarioBruto*0.06)+(salarioBruto*0.08)
             calculo(descontos)
-            continuarOUsair()
 
         elif (opcao==3): #recebe apenas VR
             salarioBruto=float(input("DIGITE SEU SALÁRIO BRUTO: R$"))
             vr=float(input("Digite o valor recebido em VR: R$"))
             descontos= (vr*0.2)+(salarioBruto*0.08)
             calculo(descontos)
-            continuarOUsair()
     except:
         print("Digite uma opção válida!")
         continuarOUsair()
+        os.system("cls")
