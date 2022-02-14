@@ -9,7 +9,7 @@ def continuarOUsair():
     if sair==2:
         sair=2
     else:
-        pass
+        os.system("cls")
 
 def calculo(descontos):
     print("")
@@ -29,12 +29,10 @@ def recebido(sal):
             dia= sal/26
             print(f'valor recebido por dia= R${dia:.2f}')
             continuarOUsair()
-            os.system("cls")
         elif (escala==2 or 'DIGITE UMA OPÇÃO VÁLIDA'):
             dia= sal/22
             print(f'valor recebido por dia= R${dia:.2f}')
             continuarOUsair()
-            os.system("cls")
 
     elif (continuar==2 or 'DIGITE UMA OPÇÃO VÁLIDA'):
         sair=2
@@ -68,4 +66,3 @@ while sair==1:
     except:
         print("Digite uma opção válida!")
         continuarOUsair()
-        os.system("cls")

@@ -10,4 +10,7 @@ OUTROS MESES TEM DIFERENÇA 30/31
 correções 05/02:
 - limpar tela
 - correção função recebido()
-- correção laço de repetição while 
+- correção laço de repetição while
+
+correções 14/02:
+- limpeza do codigo 
