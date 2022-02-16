@@ -11,6 +11,10 @@ def continuarOUsair():
     else:
         os.system("cls")
 
+def calcAdiantamento(sal):
+    sal= sal/15
+    return sal
+
 def calculo(descontos):
     print("")
     salarioLiquido= salarioBruto-descontos
